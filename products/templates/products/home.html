@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>This is the home page</h1>
+<h2>All products will be shown here..</h2>
+
+<a href="{% url 'create_product' %}">Add a new product</a><br>
+
+{% for i in prods %}
+{{ i.title }}<br>
+{{ i.price }}<br>
+{{ i.description }}<br>
+
+<a href="{% url 'update_product' i.id %}">Update</a><br>
+<a href="{% url 'delete_product' i.id %}">Delete</a><br>
+
+<hr>
+{% endfor %}
+
+{% endblock %}
